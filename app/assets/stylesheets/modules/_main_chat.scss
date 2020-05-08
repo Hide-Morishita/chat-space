@@ -1,0 +1,100 @@
+.main-chat {
+  width: calc(100vw - 300px);
+  height: 100vh;
+  background-color: $white-color;
+  .main-top {
+    height: 100px;
+    @include border(#eeeeee);
+    @include margin-padding(0, 0 40px);
+    display: flex;
+    justify-content: space-between;
+    .top-left {
+      @include margin-padding(0, 35px 0 0 0);
+      &__group-name {
+        font-size: 20px;
+        color: $group-name;
+        @include margin-padding(0 0 15px 0, 0);
+      }
+      &__member {
+        font-size: 12px;
+        color: $member-date;
+      }
+    }
+    .top-right {
+      height: 40px;
+      width: 72px;
+      line-height: 40px;
+      @include margin-padding(28px 0 0 0, 0 40px);
+      margin-top: 28px;
+      padding: 0 20px;
+      @include border($btn-color);
+      &__btn {
+        text-decoration: none;
+        color: $btn-color;
+        font-size: 16px;
+      }
+    }
+  }
+  .main-contents {
+    height: calc(100vh - 100px - 90px);
+    background-color: #fafafa;
+    @include margin-padding(0, 35px 0 0 40px);
+    .message {
+      @include margin-padding(0, 0 0 46px 0);
+      .message-box {
+        display: flex;
+        @include margin-padding(0 0 12px 0, 0);
+        &__group-name {
+          font-size: 16px;
+          color: $group-name;
+          @include margin-padding(0 5px 0 0, 0);
+        }
+        &__date {
+          font-size: 12px;
+          color: $member-date;
+        }
+      }
+      .message-comment {
+        font-size: 14px;
+        color: #434A54;
+      }
+    }
+  }
+  .main-bottom {
+    height: 90px;
+    background-color: #d2d2d2;
+    @include margin-padding(0, 0 40px);
+    display: flex;
+    align-items: center;
+    .form {
+      height: 50px;
+      width: 100%;
+      display: flex;
+      position: relative;
+      &__message {
+        height: 100%;
+        width: 100%;
+        @include margin-padding(0, 0 10px);
+      }
+      &__label {
+        height: 50px;
+        position: absolute;
+        right: 10px;
+        &--icon {
+          font-size: 25px;
+          line-height: 50px;
+        }
+        &--file {
+          display: none;
+        }
+      }
+    }
+    .form-btn {
+      height: 50px;
+      background-color: $btn-color;
+      color: $white-color;
+      font-size: 16px;
+      @include margin-padding(0 0 0 15px, 0 30px);
+    }
+  }
+}
