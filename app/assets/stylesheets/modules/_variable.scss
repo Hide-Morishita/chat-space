@@ -1,0 +1,11 @@
+$white-color: #ffffff;
+$btn-color: #38aef0;
+$group-name: #333333;
+$member-date: #999999;
+@mixin border($color) {
+  border: 1px solid $color;
+}
+@mixin margin-padding($margin, $padding) {
+  margin: $margin;
+  padding: $padding;
+}
