@@ -2,12 +2,12 @@
   .user-block
     .user-box
       .user-name
-        hide
+        = current_user.name
       .icon-box
         = link_to "#", class: "icon-box__link icon-box__link--edit" do
           = icon('fas', 'edit', class: "icon-box__link--icon")
           %span<>
-        = link_to "#", class: "icon-box__link" do
+        = link_to edit_user_path(current_user), class: "icon-box__link" do
           = icon('fas', 'cog', class: "icon-box__link--icon")
   .group-list
     .group-box
