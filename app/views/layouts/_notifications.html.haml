@@ -1,0 +1,7 @@
+.Notification
+  - flash.each do |key, value|
+    = content_tag :div, value, class: key
+    -# ChatSpaceでは「キー」を「CSS用のクラス名」に、「バリュー」を「表示するメッセージ本文」として使っています。
+    -# content_tagはHTMLタグを生成するメソッド
+    -# content_tag(作成するタグの種類△表示したい内容△class等のオプション）
+    -# ※△は半角スペース
