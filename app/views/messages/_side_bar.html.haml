@@ -4,24 +4,17 @@
       .user-name
         = current_user.name
       .icon-box
-        = link_to "#", class: "icon-box__link icon-box__link--edit" do
+        = link_to new_group_path, class: "icon-box__link icon-box__link--edit" do
           = icon('fas', 'edit', class: "icon-box__link--icon")
           %span<>
         = link_to edit_user_path(current_user), class: "icon-box__link" do
           = icon('fas', 'cog', class: "icon-box__link--icon")
   .group-list
-    .group-box
-      .group-box__name
-        techcamp
-      .group-box__message
-        まだメッセージはありません
-    .group-box
-      .group-box__name
-        test
-      .group-box__message
-        テスト
-    .group-box
-      .group-box__name
-        連絡用
-      .group-box__message
-        おはよう
+    - current_user.groups.each do |group|
+      .group-box
+        = link_to "#" do
+          .group-box__name
+            = group.name
+          .group-box__message
+            まだメッセージはありません
+      
