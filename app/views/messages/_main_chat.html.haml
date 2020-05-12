@@ -2,41 +2,21 @@
   .main-top
     .top-left
       .top-left__group-name
-        techcamp
+        = @group.name
       .top-left__member
-        Member : hide
+        Member : 
+        - @group.users.each do |group|
+          = group.name
     .top-right
-      = link_to "#", class: "top-right__btn" do
-        Edit
+      = link_to "Edit", edit_group_path(@group), class: "top-right__btn"
   .main-contents
-    .message
-      .message-box
-        .message-box__group-name
-          test
-        .message-box__date
-          2020/05/08(Fri) 12:00:00
-      .message-comment
-        テスト
-    .message
-      .message-box
-        .message-box__group-name
-          test
-        .message-box__date
-          2020/05/08(Fri) 12:00:00
-      .message-comment
-        テスト
-    .message
-      .message-box
-        .message-box__group-name
-          test
-        .message-box__date
-          2020/05/08(Fri) 12:00:00
-      .message-comment
-        テスト
+    = render @messages
   .main-bottom
-    .form
-      %input{type: "text", placeholder: "type a message", class: "form__message"}
-      %label{class: "form__label"}
-        = icon('far', 'image', class: "form__label--icon")
-        %input{type: "file", class: "form__label--file"}
-    %input{type: "submit", value: "Send", class: "form-btn"}
+    = form_with model: [@group, @message], class: "form", local: true do |f|
+      .form
+        = f.text_field :body, placeholder: "type a message", class: "form__message"
+        = f.label :image, class: "form__label" do
+          = icon('far', 'image', class: "form__label--icon")
+          = f.file_field :image, class: "form__label--file"
+      = f.submit 'Send', class: "form-btn"
+        
