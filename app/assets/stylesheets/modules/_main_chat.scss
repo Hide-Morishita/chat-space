@@ -72,34 +72,37 @@
     display: flex;
     align-items: center;
     .form {
-      height: 50px;
-      width: 100%;
       display: flex;
-      position: relative;
-      &__message {
-        height: 100%;
-        width: 100%;
-        @include margin-padding(0, 0 10px);
-      }
-      &__label {
+      width: 100%;
+      .form-contents {
         height: 50px;
-        position: absolute;
-        right: 10px;
-        &--icon {
-          font-size: 25px;
-          line-height: 50px;
+        width: 100%;
+        position: relative;
+        &__message {
+          height: 100%;
+          width: 100%;
+          @include margin-padding(0, 0 10px);
         }
-        &--file {
-          display: none;
+        &__label {
+          height: 50px;
+          position: absolute;
+          right: 10px;
+          &--icon {
+            font-size: 25px;
+            line-height: 50px;
+          }
+          &--file {
+            display: none;
+          }
         }
       }
-    }
-    .form-btn {
-      height: 50px;
-      background-color: $btn-color;
-      color: $white-color;
-      font-size: 16px;
-      @include margin-padding(0 0 0 15px, 0 30px);
+      .form-btn {
+        height: 50px;
+        background-color: $btn-color;
+        color: $white-color;
+        font-size: 16px;
+        @include margin-padding(0 0 0 15px, 0 30px);
+      }
     }
   }
 }
