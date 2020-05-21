@@ -13,10 +13,10 @@
     = render @messages
   .main-bottom
     = form_with model: [@group, @message], class: "form", local: true do |f|
-      .form
-        = f.text_field :body, placeholder: "type a message", class: "form__message"
-        = f.label :image, class: "form__label" do
-          = icon('far', 'image', class: "form__label--icon")
-          = f.file_field :image, class: "form__label--file"
+      .form-contents
+        = f.text_field :body, placeholder: "type a message", class: "form-contents__message"
+        = f.label :image, class: "form-contents__label" do
+          = icon('far', 'image', class: "form-contents__label--icon")
+          = f.file_field :image, class: "form-contents__label--file"
       = f.submit 'Send', class: "form-btn"
         
