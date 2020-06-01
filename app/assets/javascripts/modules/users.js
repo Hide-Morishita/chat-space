@@ -33,7 +33,7 @@ $(function() {
     $.ajax ({
       type: "GET",
       url: "/users",
-      data: { keyup: input },
+      data: { keyword: input },
       dataType: "json"
     })
     .done(function(users){
