@@ -22,18 +22,27 @@ $(function() {
     let html = `
                 <div class="ChatMember">
                   <p class="ChatMember__name">${name}</p>
-                  <input name="group[user_ids][]" type="hidden" value="${id}" />
+                  <input name="group[user_ids][]" type="hidden" value="${id}" class="member-id" />
                   <div class="ChatMember__remove ChatMember__button">削除</div>
                 </div>
                 `;
     $(".ChatMembers").append(html);
   }
+  
   $("#UserSearch__field").on("keyup", function() {
+    let ids = [];
     let input = $("#UserSearch__field").val();
+    let memberId = $(".member-id");
+    
+    memberId.each(function(index, elememnt) {
+      ids.push($(elememnt).val());
+    })
+    
+
     $.ajax ({
       type: "GET",
       url: "/users",
-      data: { keyword: input },
+      data: { keyword: input, ids: ids},
       dataType: "json"
     })
     .done(function(users){
@@ -57,6 +66,7 @@ $(function() {
     const userId = $(this).attr("data-user-id");
     $(this).parent().remove();
     addMember(userName, userId);
+
   });
   $(".ChatMembers").on("click", ".ChatMember__remove", function() {
     $(this).parent().remove();

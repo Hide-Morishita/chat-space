@@ -9,8 +9,8 @@ class User < ApplicationRecord
   has_many :messages
   validates :name, presence: true, uniqueness: true
 
-  def self.search(input, id)
+  def self.search(input, id, ids)
     return nil if input == ""
-    User.where(['name LIKE ?', "%#{input}%"] ).where.not(id: id).limit(10)
+    User.where(['name LIKE ?', "%#{input}%"] ).where.not(id: id, id: ids).limit(10)
   end
 end
