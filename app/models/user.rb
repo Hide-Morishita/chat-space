@@ -11,6 +11,6 @@ class User < ApplicationRecord
 
   def self.search(input, id, ids)
     return nil if input == ""
-    User.where(['name LIKE ?', "%#{input}%"] ).where.not(id: id, id: ids).limit(10)
+    User.where(['name LIKE ?', "%#{input}%"] ).where.not(id: id).where.not(id: ids).limit(10)
   end
 end
