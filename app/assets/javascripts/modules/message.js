@@ -33,6 +33,7 @@ $(function(){
     })
     .done(function(data){
       let html = buildHTML(data);
+      console.log(html);
       $('.main-contents').append(html);
       $('.form')[0].reset();
       $('.main-contents').animate({scrollTop: $('.main-contents')[0].scrollHeight});
